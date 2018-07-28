@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title></title>
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" href="images/favicon.png">
+</head>
+
+<body>
+
+    <header>
+            <span class="title">:: Bits Comparator ::</span>
+    </header>
+
+    <form id="frmCode">
+        <div class="code">
+            <textarea id="left" rows="1"></textarea>
+        </div>
+
+        <div class="code">
+            <textarea id="right" rows="1"></textarea>
+        </div>
+
+        <button type="submit" class="btn success">Compare</button>
+        <button type="reset" class="btn danger">Clear Form</button>
+        <button type="button" class="btn danger" onclick="clearResults()">Clear Results</button>
+    </form>  
+    
+    <fieldset class="result">
+        <legend>Result</legend>
+        <div id="result">
+<!-- 
+            <div class="compare-row">
+                <span class="V">0</span><span class="F">0</span>    
+            </div>
+
+            <div class="compare-row">
+                <span class="V">0</span><span class="F">1</span>    
+            </div>
+ -->
+        </div>
+
+    </fieldset>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
