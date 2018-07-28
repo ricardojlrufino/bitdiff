@@ -4,8 +4,26 @@ $(function(){
 
     $("#frmCode").submit(function(e){
         e.preventDefault();
-        compare();
-        $("#frmCode").trigger("reset");
+        
+        var lines = $("#left").val().split('\n');
+
+        for (var i = 0; i < lines.length; i++) {
+            if(i + 1 != lines.length){
+                var left = lines[i];
+                var right = lines[i+1];
+
+                left = left.trim();
+                right = right.trim();
+
+                if(left.length == right.length){
+                    compare(left.split(''), right.split(''), (i+1) + " <-> " + (i+2));
+                }else{
+                    console.warn("Ignoring compile lines: " + (i+1) + " <-> " + (i+2));
+                }
+            }
+        }
+        
+        // $("#frmCode").trigger("reset");
     });
 
 });
@@ -14,9 +32,9 @@ function clearResults(){
     $("#result").html('');
 }
 
-function compare(){
-    var left =  $("#left").val().split('');
-    var right =  $("#right").val().split('');
+function compare(left, right, title){
+    //var left =  $("#left").val().split('');
+    //var right =  $("#right").val().split('');
 
     var divResult = document.getElementById("result");
 
@@ -26,7 +44,7 @@ function compare(){
 
 
     var date = new Date().toLocaleString();
-    legend.innerHTML = "<input class='editable' value='"+date+"'></input>";
+    legend.innerHTML = "<input class='editable' value='"+ title + " - " + date+"'></input>";
 
     fieldset.appendChild(legend);
 
